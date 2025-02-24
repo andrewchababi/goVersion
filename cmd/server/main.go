@@ -15,5 +15,7 @@ func main() {
 
 	api.RegisterFlightsRoutes(e)
 
+	services.RunFlightScript()
+
 	e.Logger.Fatal(e.Start(":5000"))
 }

@@ -8,8 +8,9 @@
     <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Testing</h1>
-    <button>ClickMe</button>
+    <h1>{{ .Title }}</h1>
+    {{ template "Flights" .FlightList}}
+    </div>
 </body>
 </html>
 {{ end }}

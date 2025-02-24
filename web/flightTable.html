@@ -1,0 +1,37 @@
+{{ block "Flights" . }}
+<table id="flightsTable">
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Gate</th>
+        <th>Time</th>
+        <th>Updated Time</th>
+        <th>Airport</th>
+        <th>Status</th>
+        <th>Unique Display No</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range .Flights }}
+        {{ template "flight" . }}
+      {{ else }}
+        <tr>
+          <td colspan="7">No flights available</td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+{{ end }}
+
+
+{{ block "flight" .}}
+    <tr>
+        <td>{{ .AirLineName }}      </td>
+        <td>{{ .Gate }}             </td>
+        <td>{{ .Time }}             </td>
+        <td>{{ .UpdatedTime }}      </td>
+        <td>{{ .AirportName }}      </td>
+        <td>{{ .Status }}           </td>
+        <td>{{ .UniqueDisplayNo }}  </td>
+    </tr>
+{{ end }}
