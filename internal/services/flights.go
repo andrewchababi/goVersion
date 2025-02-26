@@ -28,6 +28,5 @@ func GetCarlosFlights() (interfaces.FlightList, error) {
 	if err != nil {
 		return interfaces.FlightList{}, fmt.Errorf("failed to get flights services level: %w", err)
 	}
-	fmt.Println(flightList.Flights)
 	return flightList, nil
 }
