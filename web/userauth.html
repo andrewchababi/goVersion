@@ -1,0 +1,40 @@
+{{ block "userauth" . }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/web/css/userAuth.css">
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>{{ .Title }}</h1>
+
+    {{ template "form" .Content }}
+</body>
+</html>
+{{ end }}
+
+
+
+
+
+{{ block "form" . }}
+<form hx-swap="outerHTML" hx-post="/contacts">
+    <label for="name">Name</label>
+    name: <input 
+    {{ if .Values.name }} value="{{ .Values.name}}" {{ end }}
+    type="text" name="name" placeholder="Name"/>
+
+    <label for="email">Email</label>
+    email: <input 
+    {{ if .Values.email }} value="{{ .Values.email}}" {{ end }}
+    type="text" name="email" placeholder="Email"/>
+
+    {{ if .Errors.email }} 
+        <div style="color: red">{{ .Errors.email }}</div>
+    {{ end }}
+    <button type="submit">Submit</button>
+</form>
+{{ end }}

@@ -1,13 +1,16 @@
 package interfaces
 
 type Page struct {
-	Title      string
-	FlightList FlightList
+	Title   string
+	Content PageContent
 }
 
-func NewPage(title string, flights FlightList) Page {
+type PageContent interface {
+}
+
+func NewPage(title string, content PageContent) Page {
 	return Page{
-		Title:      title,
-		FlightList: flights,
+		Title:   title,
+		Content: content,
 	}
 }

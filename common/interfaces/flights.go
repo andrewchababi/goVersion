@@ -13,3 +13,8 @@ type Flight struct {
 type FlightList struct {
 	Flights []Flight
 }
+
+type UserInfo struct {
+	username string
+	password string
+}
