@@ -9,13 +9,9 @@ import (
 )
 
 func InitialPage(c echo.Context) error {
-	message := "TTTTTTTTTEEEEEEEEEESSSSSSSSSSSSSSSSSTTTTTTTTTTTTTTTT"
-	flights, err := services.GetCarlosFlights()
-	if err != nil {
-		return fmt.Errorf("could not load flights handler level %w", err)
-	}
+	message := "Login"
 
-	page := interfaces.NewPage(message, flights)
+	page := interfaces.NewPage(message, nil)
 	return c.Render(200, "userauth", page)
 }
 

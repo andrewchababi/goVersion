@@ -11,6 +11,8 @@ func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 
+	e.Static("/web", "web")
+
 	e.Renderer = services.NewTemplates()
 
 	api.RegisterFlightsRoutes(e)
