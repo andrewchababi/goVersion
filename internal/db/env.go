@@ -8,7 +8,7 @@ type Env struct {
 
 func NewEnv() Env {
 	return Env{
-		DSN:       "root:VavaChab!2!6@tcp(localhost:3306)/flights_data",
+		DSN:       "root:VavaChab!2!6@tcp(localhost:3306)/flights_data?parseTime=true",
 		DBName:    "flights_data",
 		TableName: "todays_flights",
 	}

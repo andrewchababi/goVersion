@@ -23,10 +23,10 @@ func RunFlightScript() {
 	fmt.Println(string(output))
 }
 
-func GetCarlosFlights() (interfaces.FlightList, error) {
+func GetCarlosFlights() (*interfaces.FlightList, error) {
 	flightList, err := db.GetFlightsByGate(62, 68)
 	if err != nil {
-		return interfaces.FlightList{}, fmt.Errorf("failed to get flights services level: %w", err)
+		return nil, fmt.Errorf("failed to get flights services level: %w", err)
 	}
 	return flightList, nil
 }

@@ -8,13 +8,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func InitialPage(c echo.Context) error {
-	message := "Login"
-
-	page := interfaces.NewPage(message, nil)
-	return c.Render(200, "userauth", page)
-}
-
 func CarlosPepesPage(c echo.Context) error {
 	message := "Welcome to Carlos & Pepes flights"
 	flights, err := services.GetCarlosFlights()

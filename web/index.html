@@ -2,18 +2,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>{{ .Title }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/web/css/sidebar.css">
+    <link rel="stylesheet" href="/web/css/index.css">
     <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 </head>
 <body>
-
     {{ template "sidebar" . }}
-
-    <h1>{{ .Title }}</h1>
-    {{ template "Flights" .Content}}
+    <div class="main-content">
+        <header>
+            <h1>{{ .Title }}</h1>
+        </header>
+        <div class="content-area">
+            <div class="table-container">
+                {{ template "Flights" .Content }}
+            </div>
+            <div class="metrics-container">
+                <h2>Metrics</h2>
+                <p>Additional metric 1: ...</p>
+                <p>Additional metric 2: ...</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

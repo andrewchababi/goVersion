@@ -6,7 +6,8 @@ import (
 )
 
 func RegisterFlightsRoutes(e *echo.Echo) {
+	e.GET("/", handlers.InitialPage)
+
 	e.GET("/carlos", handlers.CarlosPepesPage)
 
-	e.GET("/", handlers.InitialPage)
 }
