@@ -4,3 +4,9 @@ venv/
 
 tmp/*.log
 tmp/*.exe
+
+.vscode
+
+web/tmp
+
+web/resources
