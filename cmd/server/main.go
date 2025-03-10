@@ -15,8 +15,7 @@ func main() {
 
 	e.Renderer = services.NewTemplates()
 
-	api.RegisterUserLoginRoutes(e)
-	api.RegisterFlightsRoutes(e)
+	api.RegisterRoutes(e)
 
 	services.RunFlightScript()
 

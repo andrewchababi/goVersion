@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/andrewchababi/restoport/internal/db"
+	"github.com/labstack/echo/v4"
 )
 
 func UserAuth(username, password string) (string, error) {
@@ -25,6 +26,7 @@ func UserAuth(username, password string) (string, error) {
 	return user.Organisation, nil
 }
 
-func Redirect(organisation string) {
-
+func Redirect(c echo.Context, organisation string) {
+	redirectUrl := fmt.Sprintf("/home?org=%s", organisation)
+	c.Response().Header().Set("HX-Redirect", redirectUrl)
 }

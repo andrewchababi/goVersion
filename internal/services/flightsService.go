@@ -23,14 +23,15 @@ func RunFlightScript() {
 	fmt.Println(string(output))
 }
 
-func GetCarlosFlights() (*interfaces.FlightList, error) {
-	flightList, err := db.GetFlightsByGate(62, 68)
+func GetFlightsByOrganisation(org string) (*interfaces.FlightList, error) {
+	g1, g2, err := db.GetGateMap(org)
+	if err != nil {
+		return nil, fmt.Errorf("no gates maped to %s organisation", org)
+	}
+
+	flightList, err := db.GetFlightsByGate(g1, g2)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get flights services level: %w", err)
 	}
 	return flightList, nil
-}
-
-func GetFlights(org string) (*interfaces.FlightList, error) {
-
 }

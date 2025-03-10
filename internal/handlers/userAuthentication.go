@@ -22,19 +22,12 @@ func LoginUser(c echo.Context) error {
 
 	fmt.Printf("Recieved Data -> Name: %v Email: %v \n", username, password)
 
-	_, err := services.UserAuth(username, password)
-
-	/////////////////////////////////////////////////////
+	organisation, err := services.UserAuth(username, password)
 
 	if err != nil {
 		return c.HTML(200, fmt.Sprintf(`<div style="color:red;">Error: %s</div>`, err.Error()))
 	}
 
-	// If authentication is successful, you might want to render a dashboard page or similar.
-	// For this example, we just return the organisation.
-
-	c.Response().Header().Set("HX-Redirect", "/dashboard")
+	services.Redirect(c, organisation)
 	return nil
-
-	/////////////////////////////////////////////////////
 }
