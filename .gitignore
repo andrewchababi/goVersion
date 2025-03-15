@@ -2,8 +2,8 @@ venv/
 .venv/
 
 
-tmp/*.log
-tmp/*.exe
+/tmp/
+
 
 .vscode
 
